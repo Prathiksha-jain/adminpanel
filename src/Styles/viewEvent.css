@@ -1,0 +1,179 @@
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.view-button,
+.edit-button {
+  padding: 11px 16px;
+  border: none;
+  margin-right: 5px;
+  text-decoration: none;
+  font-size: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  color: rgb(255, 255, 255);
+  background-color: #333;
+}
+
+.view:active,
+.edit:active {
+  background-color: black;
+}
+
+.approved-button,
+.unapproved-button {
+  padding: 10px 28px;
+  display: flex;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: #333;
+  color: white;
+}
+
+.project-approved-button,
+.project-unapproved-button {
+  padding: 10px 28px;
+  display: flex;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: #333;
+  color: white;
+}
+
+.unapproved-button {
+  margin-left: 10px;
+}
+
+.approved-button:active,
+.unapproved-button:active {
+  background-color: black;
+}
+
+/* viewEvent.css */
+.project-button-container {
+  display: flex;
+  justify-content: space-between; /* Space between left and right button groups */
+  padding: 20px; /* Adjust this padding to move the container away from the edges */
+}
+
+.left-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* Align buttons to the start (left) */
+  gap: 10px; /* Space between buttons */
+  margin-left: 260px; /* Adjust to move the buttons away from the left edge */
+}
+
+.right-buttons {
+  display: flex;
+  align-items: right;
+  gap: 10px;
+  margin-right: 50px;
+}
+
+.education-button,
+.health-button,
+.public-button {
+  padding: 10px 28px;
+  display: flex;
+  margin-left: 0px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: #333;
+  color: white;
+}
+
+button:active {
+  background-color: black; /* Black background when clicked */
+}
+
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+}
+
+#dialog-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+}
+
+.dialog {
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 300px;
+  text-align: center;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+}
+
+.dialog .button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dialog .button:hover {
+  opacity: 0.8;
+}
+
+.dialog .confirm-btn {
+  background-color: #4CAF50;
+}
+
+.dialog .cancel-btn {
+  background-color: #F44336;
+}
+
+
+.table-container {
+  max-height: 692px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.table-container-project {
+  max-height: 650px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.table-container::-webkit-scrollbar {
+  display: none;
+}
+
+*::-webkit-scrollbar{
+display: none;
+}
+
+.styled-table thead th {
+  position: sticky;
+  top: 0;
+  background: black;
+  color: white;
+  z-index: 1;
+}
