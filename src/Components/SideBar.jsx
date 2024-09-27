@@ -18,9 +18,9 @@ const SidebarLayout = ({ children }) => {
     borderRadius: "10px",
     width: "100%",
     padding: "5px",
-    paddingLeft: "40px", // Increased padding for more space
+    paddingLeft: "40px",
     textDecoration: "none",
-    color: "#fff", // Text color set to white
+    color: "#fff",
     boxSizing: "border-box",
     margin: "10px 0",
     overflow: "hidden",
@@ -35,14 +35,14 @@ const SidebarLayout = ({ children }) => {
   };
 
   const getMenuItemStyle = (index) => {
-    const baseStyle = { ...menuItemStyle }; // Base style is same for all
+    const baseStyle = { ...menuItemStyle };
     if (activeIndex === index) {
       return { ...baseStyle, ...menuItemActiveStyle };
     }
     if (hoverIndex === index) {
       return { ...baseStyle, ...menuItemHoverStyle };
     }
-    return baseStyle; // Return the base style if neither active nor hovered
+    return baseStyle;
   };
 
   // Set active index based on the current path
@@ -78,19 +78,15 @@ const SidebarLayout = ({ children }) => {
         {/* Sidebar */}
         <div className="col-auto col-md-3 sidebar col-xl-2 px-sm-2 px-0" style={{ backgroundColor: "#1995AD" }}>
           <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-            <a href="/" className="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+            <h4 className="text-decoration-none text-center" style={{ color: "inherit", marginBottom: "30px", padding: "20px", width: "100%" }}>
               {ID === "1" ? (
-                <h4 className="text-decoration-none" style={{ color: "inherit", marginBottom:"30px",padding: "20px"}}>
-                  <span className="fs-5 d-none d-sm-inline" style={{ marginLeft: "30px",fontWeight:"bold"}}>Admin Panel</span>
-                </h4>
+                <span className="fs-5 d-none d-sm-inline" style={{ fontWeight: "bold" }}>Admin Panel</span>
               ) : (
-                <h4 className="text-decoration-none" style={{ color: "inherit", padding: "20px",fontWeight:"bold"}}>
-                  <span className="fs-5 d-none d-sm-inline" style={{ marginLeft: "30px" }}>Nodal Officer <br />Panel</span>
-                </h4>
+                <span className="fs-5 d-none d-sm-inline" style={{ fontWeight: "bold" }}>Nodal Officer <br /> Panel</span>
               )}
-              <hr></hr>
-            </a>
-            
+            </h4>
+            <hr />
+
             <NavLink
               exact
               to={ID === "1" ? `/adminDashboard/${ID}` : `/operatorDashboard/${ID}`}
@@ -141,53 +137,35 @@ const SidebarLayout = ({ children }) => {
             </NavLink>
 
             <hr />
-            <div className="mt-auto"> {/* Ensure user section is at the bottom */}
-              <div className="dropdown pb-4">
-                <a
-                  href="#"
-                  className="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                  id="dropdownUser1"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                  style={{ marginLeft: "20px" }} // Correctly applied margin
-                >
-                  <img
-                    src="https://github.com/mdo.png"
-                    alt="user"
-                    width="30"
-                    height="30"
-                    className="rounded-circle"
-                  />
-                  <span className="d-none d-sm-inline mx-1">User</span>
-                </a>
-                <ul className="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Settings
-                    </a>
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#">
-                      Profile
-                    </a>
-                  </li>
-                  <li>
-                    <hr className="dropdown-divider" />
-                  </li>
-                  <li>
-                    <a className="dropdown-item" href="#" onClick={logout}>
-                      Sign out
-                    </a>
-                  </li>
-                </ul>
-              </div>
+            <div className="mt-auto">
+              <NavLink
+                exact
+                to="#"
+                className="nav-link align-middle px-0"
+                onClick={logout}
+                style={{    textAlign: "left",
+                  transition: "background-color 0.3s",
+                  borderRadius: "10px",
+                  width: "100%",
+                  padding: "5px",
+                  paddingLeft: "40px",
+                  textDecoration: "none",
+                  color: "#fff",
+                  boxSizing: "border-box",
+                  margin: "10px 0",
+                  overflow: "hidden",}}
+                onMouseEnter={() => setHoverIndex(5)}
+                onMouseLeave={() => setHoverIndex(null)}
+              >
+                <i className="bi-box-arrow-right" style={{ marginLeft: "20px" }}></i>
+                <span className="ms-3 d-none d-sm-inline">Sign out</span>
+              </NavLink>
             </div>
           </div>
         </div>
 
         {/* Content */}
         <div className="col py-3">
-          {/* Render Children Components */}
           {children}
         </div>
       </div>
